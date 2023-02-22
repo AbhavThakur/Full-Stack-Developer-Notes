@@ -41,6 +41,10 @@
 12. [Global Objects](#global-objects)
 13. [Global Contructors](#global-constructors)
 14. [Global Functions](#global-functions)
+15. [References vs Values](#references-vs-values)
+16. [Truthy vs Falsy](#truthy-vs-falsy)
+17. [Global Scope](#global-scope)
+18. [Local Scope](#local-scope)
 
 ## Functions
 
@@ -708,5 +712,192 @@ if (NaN) {
 ```
 
 ---
+## Global Scope
+
+```javascript
+var a = 1;
+function foo() {
+  console.log(a); // 1
+}
+foo();
+```
+
+```javascript
+var a = 1;
+function foo() {
+  var a = 2;
+  console.log(a); // 2
+}
+foo();
+```
+
+```javascript  
+var a = 1;
+function foo() {
+  a = 2;
+  console.log(a); // 2
+}
+foo();
+console.log(a); // 2
+```
+
+```javascript
+var a = 1;
+function foo() {
+  var a = 2;
+  console.log(a); // 2
+}
+foo();
+console.log(a); // 1
+```
+
+```javascript
+var a = 1;
+function foo() {
+  var a = 2;
+  console.log(a); // 2
+}
+foo();
+console.log(a); // 1
+function bar() {
+  console.log(a); // 1
+}
+bar();
+```
+
+```javascript
+var a = 1;
+function foo() {
+  var a = 2;
+  console.log(a); // 2
+}
+foo();
+console.log(a); // 1
+function bar() {
+  var a = 3;
+  console.log(a); // 3
+}
+bar();
+```
+
+```javascript
+var a = 1;
+function foo() {
+  var a = 2;
+  console.log(a); // 2
+}
+foo();
+console.log(a); // 1
+function bar() {
+  a = 3;
+  console.log(a); // 3
+}  
+bar();
+console.log(a); // 3
+```
+
+```javascript
+var a = 1;
+function foo() {
+  var a = 2;
+  console.log(a); // 2
+}
+foo();
+console.log(a); // 1
+function bar() {
+  a = 3;
+  console.log(a); // 3
+}
+bar();
+console.log(a); // 3
+function baz() {
+  console.log(a); // 3
+}
+baz();
+```
+
+```javascript
+var a = 1;
+function foo() {
+  var a = 2;
+  console.log(a); // 2
+}
+foo();
+console.log(a); // 1
+function bar() {
+  a = 3;
+  console.log(a); // 3
+}
+bar();
+console.log(a); // 3
+function baz() {
+  var a = 4;
+  console.log(a); // 4
+}
+
+baz();
+```
+---
+## Local Scope
+
+```javascript
+function foo() {
+  var a = 1;
+  console.log(a); // 1
+}
+foo();
+console.log(a); // ReferenceError: a is not defined
+```
+
+```javascript  
+function foo() {
+  var a = 1;
+  console.log(a); // 1
+}
+foo();
+console.log(a); // ReferenceError: a is not defined
+function bar() {
+  console.log(a); // ReferenceError: a is not defined
+}
+bar();
+```
+
+```javascript
+function foo() {
+  var a = 1;
+  console.log(a); // 1
+}
+foo();
+console.log(a); // ReferenceError: a is not defined
+function bar() {
+  a = 2;
+  console.log(a); // 2
+}
+bar();
+console.log(a); // 2
+```
+
+```javascript
+function foo() {
+  var a = 1;
+  console.log(a); // 1
+}
+foo();
+console.log(a); // ReferenceError: a is not defined
+function bar() {
+  a = 2;
+  console.log(a); // 2
+}
+bar();
+console.log(a); // 2
+function baz() {
+  console.log(a); // 2
+}
+baz();
+```
+
+
+---
+
 
 
