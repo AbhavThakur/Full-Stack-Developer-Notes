@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text</title>
+    <link rel="stylesheet" href="styles/text.css" />
+  </head>
+  <body>
+    <p class="video-title">
+      Talking about Tech and AI with Google CEO Sundar Pichai!
+    </p>
+
+    <!-- html  entity $#183  for dot
+paragraph tag come with default margin at top and bottom
+-->
+    <p class="video-stats">3.4 M viewa &#183; 6 months ago</p>
+
+    <p class="video-author">Marques Browniee</p>
+
+    <!-- text elements
+    1. Strong (bold)-> <strong>
+    2. underline -> <u></u>
+    3. span elements (give any style without any default styles) ->  <span></span>
+    4. <em> <em/>
+    -->
+    <p class="apple-text">
+      Shop early for the best <strong> deals</strong> selection of
+      <em> holiday favourites.</em>
+      <span class="shop-link"> Shop now </span>
+    </p>
+    <!--------------              Links                       --------------------- ---------------------------- -->
+    <!-- internal Link -->
+    <a href="buttons.html">Buttons</a>
+    <!--  -->
+    <!-- Link with in the page {height}  -->
+    <a href="#udemy">img</a>
+    <img
+      src="HTML_CSS_Websites/youtubeClone/channel-pictures/channel-1.jpeg"
+      alt="image"
+      id="udemy"
+    />
+    <!-- empty link -->
+    <a href="#">empty link</a>
+    <!--  -->
+    <!-- --------------------------                                             -------------------------------- -->
+    <!---------------------  sup and sub     --- -- -------------- --------------------------->
+    <h1>Hello I'm <sup>1st</sup> abhav <sub>in town</sub></h1>
+
+    <!-- --------------------------- --------------------------- -->
+
+    <!---------------------  Special Characters     --- -- -------------- --------------------------->
+
+    <h1>copyright &copy; &#174;</h1>
+    <!--  -------------------------------- -->
+
+    <!---------------------  unordered list     --- -- -------------- --------------------------->
+    <ul>
+      <li>abhav</li>
+      <li><a href="buttons.html">button</a></li>
+      <li>abhav</li>
+    </ul>
+    <!-- -------------------------------- -->
+
+    <!---------------------  ordered list     --- -- -------------- --------------------------->
+    <ol>
+      <li>abhav</li>
+      <li>abhav</li>
+      <li>abhav</li>
+    </ol>
+    <!-- -------------------------------- -->
+
+    <!-- --------------------------------  Nested List -------------------------------- -->
+    <ul>
+      <li>abhav</li>
+      <li>
+        languages
+        <ol>
+          <li>javascript</li>
+          <li>python</li>
+        </ol>
+      </li>
+      <li>hello</li>
+    </ul>
+    <!-- --------------------------- -->
+
+    <!-- --------------------------------  Table  ---------------------------- -->
+    <table>
+      <tr>
+        <!-- <tr>   -- table row     -->
+        <td>number</td>
+        <td>name</td>
+      </tr>
+      <tr>
+        <th>abhav</th>
+        <!-- th -- table heading -->
+      </tr>
+    </table>
+
+    <!-- --------------------------------  --------------------------------  -->
+
+    <!-- ---------------------------- Forms ---------------------------- -->
+    <form action="" method="post">
+      <!-- text input -->
+      <label for="firstname">FirstName</label>
+      <input
+        type="text"
+        name="name"
+        id="firstname"
+        placeholder="First Name"
+        value="Abhav"
+      />
+      <br />
+      <!-- password input -->
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="please type your password"
+      />
+      <!-- email input -->
+      <br />
+      <label for="Email">Email</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        value="email@email.com"
+      />
+      <br />
+      <!-- textarea -->
+      <label for="des">Password</label>
+      <textarea name="info" id="des" cols="30" rows="10"></textarea>
+      <br />
+      <!-- radio button -->
+      <p>please select your favourite coding language</p>
+      <!-- name should be same for all -->
+      <input type="radio" name="coding" id="" value="Javascript" />Javascript
+      <input type="radio" name="coding" id="" value="Java" />Java
+      <input type="radio" name="coding" id="" value="Python" />Python
+      <br />
+      <p>please select your favourite coding language</p>
+
+      <!-- checkbox -->
+      <input
+        type="checkbox"
+        name="programming"
+        id=""
+        value="javascript"
+      />Javascript
+      <input type="checkbox" name="programming" id="" value="java" />Java
+      <input type="checkbox" name="programming" id="" value="python" />Python
+      <br />
+      <p>please select your favourite coding language</p>
+      <!-- DropDown or select -->
+      <select name="languages" id="">
+        <option value="javascript">javascript</option>
+        <option value="java">java</option>
+        <option value="Python">Python</option>
+      </select>
+      <br />
+      <br />
+
+      <!-- submit button -->
+      <!-- <input type="submit" value="submit here" /> -->
+      <!-- or -->
+      <button type="submit">submit</button>
+      <!--  -->
+    </form>
+
+    <!-- modify this form HTML and place wherever you want your form -->
+    <form action="https://formspree.io/f/xzbqeavy" method="POST">
+      <label>
+        Your email:
+        <input type="email" name="email" />
+      </label>
+      <label>
+        Your message:
+        <textarea name="message"></textarea>
+      </label>
+      <!-- your other form fields go here -->
+      <button type="submit">Send</button>
+    </form>
+
+    <!-- ---- --- ----------------------------form end ---------------------------- -->
+  </body>
+</html>

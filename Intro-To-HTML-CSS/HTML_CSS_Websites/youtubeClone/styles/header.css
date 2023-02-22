@@ -1,0 +1,120 @@
+.header {
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  height: 55px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(187, 184, 184, 0.8);
+  z-index: 100;
+}
+
+.header-left-section {
+  display: flex;
+  align-items: center;
+}
+.hamburger-menu {
+  height: 24px;
+  margin-right: 24px;
+  margin-left: 24px;
+}
+.youtube-logo {
+  height: 20px;
+}
+
+.header-middle-section {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  max-width: 500px;
+}
+
+.searchBar {
+  flex: 1;
+  height: 34px;
+  padding-left: 10px;
+  font-size: 16px;
+  /* border-width: 1px;
+  border-style: solid;
+  border-color: rgb(194, 193, 193); */
+  /* we can use border directly */
+  border: 1px solid rgb(194, 193, 193);
+  width: 0;
+}
+/* width:0 to remove standard width from search bar */
+.searchBar::placeholder {
+  font-size: 14px;
+  font-family: Roboto;
+}
+
+.button-search-icon {
+  width: 58px;
+  height: 38px;
+  margin-right: 10px;
+  margin-left: -1px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(194, 193, 193);
+  position: relative;
+}
+
+.button-search-icon .toolTip {
+  position: absolute;
+  bottom: -34px;
+  background-color: rgb(120, 115, 115);
+  color: white;
+  font-size: 12px;
+  font-family: Roboto;
+  padding: 4px 8px 4px 8px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: opacity 0.3s;
+}
+
+.button-search-icon:hover .toolTip {
+  opacity: 1;
+}
+
+.button-voice-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: none;
+}
+.search-icon {
+  height: 24px;
+}
+
+.voice-icon {
+  height: 24px;
+}
+
+.header-right-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 180px;
+  margin-right: 20px;
+}
+
+.upload-icon {
+  height: 24px;
+}
+.youtube-apps-icons {
+  height: 24px;
+}
+
+.notification-icon {
+  height: 24px;
+}
+
+.profile-icon {
+  height: 32px;
+  border-radius: 16px;
+}

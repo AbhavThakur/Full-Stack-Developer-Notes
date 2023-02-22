@@ -1,0 +1,64 @@
+/*rgb - red blue green - maximum value is 255
+ e.g-(255,0,0) means red full and 0,0 green, blue */
+#first {
+  color: rgb(255, 0, 0);
+  background: rgb(0, 255, 0);
+}
+
+/* RGBA   A-opacity/transparency 0-1  */
+#second {
+  color: rgba(255, 0, 0, 0.5);
+  background: rgba(0, 255, 0, 0.5);
+}
+
+body {
+  background: #f1f1f1;
+}
+
+.firstContainer {
+  background: white;
+  height: 100px;
+}
+
+.secondContainer {
+  background: #222;
+  min-height: calc(100vh - 100px);
+}
+
+div h3,
+p {
+  color: blue;
+}
+
+/*1. Pixels -  these are absolute values (don't increase or decrease according to screen size)*/
+
+/*2. Percentages - these are relative values (increase or decrease according to screen size)*/
+
+/*3. EMs - these are relative values (increase or decrease according to container  size)
+1em - 16px default browser font size
+1em = base value(16px) * 1 = 16px
+2em = base value(16px) * 2 = 32px
+0.5em = base value(16px) * 0.5 = 8px
+*/
+
+/*4. rem = Relative , depends on root
+1rem = base value(16px) * 1 = 16px
+*/
+
+/*
+5. ViewPORT Units
+vh - height - percentage of main screen height
+vw - width - percentage of screen width
+*/
+
+/*
+CALC() - allows you to combine different units
+calc(100% - 20px)
+*/
+
+/*
+height:auto
+overflow: scroll
+min-height: 100vh
+max-height: 100vh
+*/

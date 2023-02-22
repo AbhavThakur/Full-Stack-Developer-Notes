@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Table of Contents</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 style="text-align: center;">Javascript Basics Notes </h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li>
+<p><strong><a href="#functions">Functions</a></strong></p>
+<ol>
+<li><a href="#function-declaration">Function Declaration</a></li>
+<li><a href="#function-expression">Function Expression</a></li>
+<li><a href="#function-hoisting">Function Hoisting</a></li>
+<li><a href="#function-scope">Function Scope</a></li>
+<li><a href="#function-parameters">Function Parameters</a></li>
+<li><a href="#function-properties">Function Properties</a></li>
+<li><a href="#function-methods">Function Methods</a></li>
+</ol>
+</li>
+<li>
+<p><strong><a href="#objects">Objects</a></strong></p>
+<ol>
+<li><a href="#object-literal">Object Literal</a></li>
+<li><a href="#object-constructor">Object Constructor</a></li>
+<li><a href="#object-prototype">Object Prototype</a></li>
+<li><a href="#object-properties">Object Properties</a></li>
+<li><a href="#object-methods">Object Methods</a></li>
+<li><a href="#object-inheritance">Object Inheritance</a></li>
+<li><a href="#object-enumeration">Object Enumeration</a></li>
+</ol>
+</li>
+<li>
+<p><strong><a href="#arrays">Arrays</a></strong></p>
+</li>
+<li>
+<p><strong><a href="#strings">Strings</a></strong></p>
+<ol>
+<li><a href="#string-properties">String Properties</a></li>
+<li><a href="#string-methods">String Methods</a></li>
+</ol>
+</li>
+<li>
+<p><strong><a href="#numbers">Numbers</a></strong></p>
+<ol>
+<li><a href="#number-properties">Number Properties</a></li>
+<li><a href="#number-methods">Number Methods</a></li>
+</ol>
+</li>
+<li>
+<p><strong><a href="#booleans">Booleans</a></strong></p>
+</li>
+<li>
+<p><strong><a href="#dates">Dates</a></strong></p>
+<ol>
+<li><a href="#date-properties">Date Properties</a></li>
+<li><a href="#date-methods">Date Methods</a></li>
+</ol>
+</li>
+<li>
+<p><a href="#regular-expressions">RegExpressions</a></p>
+</li>
+<li>
+<p><strong><a href="#math">Math</a></strong></p>
+</li>
+<li>
+<p><a href="#json">JSON</a></p>
+</li>
+<li>
+<p><a href="#global-methods">Global Methods</a></p>
+</li>
+<li>
+<p><a href="#global-objects">Global Objects</a></p>
+</li>
+<li>
+<p><a href="#global-constructors">Global Contructors</a></p>
+</li>
+<li>
+<p><a href="#global-functions">Global Functions</a></p>
+</li>
+</ol>
+<h2 id="functions">Functions</h2>
+<h3 id="function-declaration">Function Declaration</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myFunction</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// code</span>
+}
+</code></pre>
+<h3 id="function-expression">Function Expression</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myFunction = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// code</span>
+};
+</code></pre>
+<h3 id="function-hoisting">Function Hoisting</h3>
+<pre><code class="language-javascript"><span class="hljs-title function_">myFunction</span>(); <span class="hljs-comment">// works</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">myFunction</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// code</span>
+}
+</code></pre>
+<h3 id="function-scope">Function Scope</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myFunction = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">var</span> myVar = <span class="hljs-number">1</span>;
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myVar); <span class="hljs-comment">// 1</span>
+};
+
+<span class="hljs-title function_">myFunction</span>();
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myVar); <span class="hljs-comment">// undefined</span>
+</code></pre>
+<h3 id="function-parameters">Function Parameters</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myFunction</span>(<span class="hljs-params">myParam</span>) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myParam); <span class="hljs-comment">// 1</span>
+}
+
+<span class="hljs-title function_">myFunction</span>(<span class="hljs-number">1</span>);
+</code></pre>
+<h3 id="function-properties">Function Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myFunction</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// code</span>
+}
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myFunction.<span class="hljs-property">length</span>); <span class="hljs-comment">// 0</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myFunction.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// [Function]</span>
+</code></pre>
+<h3 id="function-methods">Function Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myFunction</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// code</span>
+}
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myFunction.<span class="hljs-title function_">toString</span>()); <span class="hljs-comment">// function myFunction() { // code }</span>
+</code></pre>
+<hr>
+<h2 id="objects">Objects</h2>
+<h3 id="object-literal">Object Literal</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myObject = {
+  <span class="hljs-attr">myProperty</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">myMethod</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// code</span>
+  },
+};
+</code></pre>
+<h3 id="object-constructor">Object Constructor</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">MyObject</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">myProperty</span> = <span class="hljs-number">1</span>;
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">myMethod</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// code</span>
+  };
+}
+
+<span class="hljs-keyword">var</span> myObject = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyObject</span>();
+</code></pre>
+<h3 id="object-prototype">Object Prototype</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">MyObject</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">myProperty</span> = <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-title class_">MyObject</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myMethod</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// code</span>
+};
+
+<span class="hljs-keyword">var</span> myObject = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyObject</span>();
+</code></pre>
+<h3 id="object-properties">Object Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myObject = {
+  <span class="hljs-attr">myProperty</span>: <span class="hljs-number">1</span>,
+};
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myObject.<span class="hljs-property">myProperty</span>); <span class="hljs-comment">// 1</span>
+</code></pre>
+<h3 id="object-methods">Object Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myObject = {
+  <span class="hljs-attr">myMethod</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// code</span>
+  },
+};
+
+myObject.<span class="hljs-title function_">myMethod</span>();
+</code></pre>
+<h3 id="object-inheritance">Object Inheritance</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">MyObject</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">myProperty</span> = <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-title class_">MyObject</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">myMethod</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// code</span>
+};
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">MyOtherObject</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">myOtherProperty</span> = <span class="hljs-number">2</span>;
+}
+
+<span class="hljs-title class_">MyOtherObject</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyObject</span>();
+
+<span class="hljs-keyword">var</span> myOtherObject = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyOtherObject</span>();
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myOtherObject.<span class="hljs-property">myProperty</span>); <span class="hljs-comment">// 1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myOtherObject.<span class="hljs-title function_">myMethod</span>()); <span class="hljs-comment">// code</span>
+</code></pre>
+<h3 id="object-enumeration">Object Enumeration</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myObject = {
+  <span class="hljs-attr">myProperty</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">myOtherProperty</span>: <span class="hljs-number">2</span>,
+};
+
+<span class="hljs-keyword">for</span> (property <span class="hljs-keyword">in</span> myObject) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(property); <span class="hljs-comment">// myProperty, myOtherProperty</span>
+}
+</code></pre>
+<hr>
+<h2 id="arrays">Arrays</h2>
+<h3 id="array-literal">Array Literal</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myArray = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+</code></pre>
+<h3 id="array-constructor">Array Constructor</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myArray = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
+</code></pre>
+<h3 id="array-properties">Array Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myArray = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myArray.<span class="hljs-property">length</span>); <span class="hljs-comment">// 3</span>
+</code></pre>
+<h3 id="array-methods">Array Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myArray = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+
+myArray.<span class="hljs-title function_">push</span>(<span class="hljs-number">4</span>); <span class="hljs-comment">// [1,2,3,4]</span>
+myArray.<span class="hljs-title function_">pop</span>(); <span class="hljs-comment">// [1,2,3]</span>
+myArray.<span class="hljs-title function_">unshift</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// [0,1,2,3]</span>
+myArray.<span class="hljs-title function_">shift</span>(); <span class="hljs-comment">// [1,2,3]</span>
+</code></pre>
+<h3 id="array-enumeration">Array Enumeration</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myArray = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; myArray.<span class="hljs-property">length</span>; i++) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myArray[i]); <span class="hljs-comment">// 1,2,3</span>
+}
+
+<span class="hljs-keyword">for</span> (index <span class="hljs-keyword">in</span> myArray) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myArray[index]); <span class="hljs-comment">// 1,2,3</span>
+}
+</code></pre>
+<hr>
+<h2 id="strings">Strings</h2>
+<h3 id="string-properties">String Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myString = <span class="hljs-string">&#x27;hello&#x27;</span>;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-property">length</span>); <span class="hljs-comment">// 5</span>
+</code></pre>
+<h3 id="string-methods">String Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myString = <span class="hljs-string">&#x27;hello&#x27;</span>;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">charAt</span>(<span class="hljs-number">0</span>)); <span class="hljs-comment">// h</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">charCodeAt</span>(<span class="hljs-number">0</span>)); <span class="hljs-comment">// 104</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">concat</span>(<span class="hljs-string">&#x27; world&#x27;</span>)); <span class="hljs-comment">// hello world</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;l&#x27;</span>)); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">lastIndexOf</span>(<span class="hljs-string">&#x27;l&#x27;</span>)); <span class="hljs-comment">// 3</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/l/g</span>)); <span class="hljs-comment">// [&quot;l&quot;,&quot;l&quot;]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;l&#x27;</span>, <span class="hljs-string">&#x27;L&#x27;</span>)); <span class="hljs-comment">// heLlo</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">search</span>(<span class="hljs-string">&#x27;l&#x27;</span>)); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>)); <span class="hljs-comment">// he</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;l&#x27;</span>)); <span class="hljs-comment">// [&quot;he&quot;,&quot;&quot;,&quot;o&quot;]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">substr</span>(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>)); <span class="hljs-comment">// he</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">substring</span>(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>)); <span class="hljs-comment">// he</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">toLowerCase</span>()); <span class="hljs-comment">// hello</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myString.<span class="hljs-title function_">toUpperCase</span>()); <span class="hljs-comment">// HELLO</span>
+</code></pre>
+<hr>
+<h2 id="numbers">Numbers</h2>
+<h3 id="number-properties">Number Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myNumber = <span class="hljs-number">1</span>;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myNumber.<span class="hljs-property">MAX_VALUE</span>); <span class="hljs-comment">// 1.7976931348623157e+308</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myNumber.<span class="hljs-property">MIN_VALUE</span>); <span class="hljs-comment">// 5e-324</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myNumber.<span class="hljs-property">NaN</span>); <span class="hljs-comment">// NaN</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myNumber.<span class="hljs-property">NEGATIVE_INFINITY</span>); <span class="hljs-comment">// -Infinity</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myNumber.<span class="hljs-property">POSITIVE_INFINITY</span>); <span class="hljs-comment">// Infinity</span>
+</code></pre>
+<h3 id="number-methods">Number Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myNumber = <span class="hljs-number">1</span>;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myNumber.<span class="hljs-title function_">toExponential</span>()); <span class="hljs-comment">// 1e+0</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myNumber.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>)); <span class="hljs-comment">// 1.00</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myNumber.<span class="hljs-title function_">toPrecision</span>(<span class="hljs-number">2</span>)); <span class="hljs-comment">// 1.0</span>
+</code></pre>
+<hr>
+<h2 id="booleans">Booleans</h2>
+<h3 id="boolean-properties">Boolean Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myBoolean = <span class="hljs-literal">true</span>;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myBoolean.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// [Boolean: false]</span>
+</code></pre>
+<h3 id="boolean-methods">Boolean Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myBoolean = <span class="hljs-literal">true</span>;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myBoolean.<span class="hljs-title function_">toString</span>()); <span class="hljs-comment">// true</span>
+</code></pre>
+<hr>
+<h2 id="dates">Dates</h2>
+<h3 id="date-properties">Date Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">getDate</span>()); <span class="hljs-comment">// 19</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">getDay</span>()); <span class="hljs-comment">// 0</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">getFullYear</span>()); <span class="hljs-comment">// 2015</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">getHours</span>()); <span class="hljs-comment">// 18</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">getMilliseconds</span>()); <span class="hljs-comment">// 114</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">getMinutes</span>()); <span class="hljs-comment">// 37</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">getMonth</span>()); <span class="hljs-comment">// 1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">getSeconds</span>()); <span class="hljs-comment">// 40</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">getTime</span>()); <span class="hljs-comment">// 1424393460114</span>
+</code></pre>
+<h3 id="date-methods">Date Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">setDate</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1420070400000</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">setFullYear</span>(<span class="hljs-number">2014</span>)); <span class="hljs-comment">// 1391212800000</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">setHours</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1391220000000</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">setMilliseconds</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1391220000010</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">setMinutes</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1391220060010</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">setMonth</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1391216400010</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">setSeconds</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1391220060010</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myDate.<span class="hljs-title function_">setTime</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1</span>
+</code></pre>
+<hr>
+<h2 id="regular-expressions">Regular Expressions</h2>
+<h3 id="regular-expression-properties">Regular Expression Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myRegExp = <span class="hljs-regexp">/hello/</span>;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myRegExp.<span class="hljs-property">global</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myRegExp.<span class="hljs-property">ignoreCase</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myRegExp.<span class="hljs-property">lastIndex</span>); <span class="hljs-comment">// 0</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myRegExp.<span class="hljs-property">multiline</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myRegExp.<span class="hljs-property">source</span>); <span class="hljs-comment">// hello</span>
+</code></pre>
+<h3 id="regular-expression-methods">Regular Expression Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-keyword">var</span> myRegExp = <span class="hljs-regexp">/hello/</span>;
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myRegExp.<span class="hljs-title function_">compile</span>()); <span class="hljs-comment">// /hello/</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myRegExp.<span class="hljs-title function_">exec</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>)); <span class="hljs-comment">// [&quot;hello&quot;, index: 0, input: &quot;hello world&quot;]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(myRegExp.<span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>)); <span class="hljs-comment">// true</span>
+</code></pre>
+<hr>
+<h2 id="math">Math</h2>
+<h3 id="math-properties">Math Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">E</span>); <span class="hljs-comment">// 2.718281828459045</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">LN10</span>); <span class="hljs-comment">// 2.302585092994046</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">LN2</span>); <span class="hljs-comment">// 0.6931471805599453</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">LOG10E</span>); <span class="hljs-comment">// 0.4342944819032518</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">LOG2E</span>); <span class="hljs-comment">// 1.4426950408889634</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>); <span class="hljs-comment">// 3.141592653589793</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">SQRT1_2</span>); <span class="hljs-comment">// 0.7071067811865476</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property">SQRT2</span>); <span class="hljs-comment">// 1.4142135623730951</span>
+</code></pre>
+<h3 id="math-methods">Math Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">abs</span>(-<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">acos</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 0</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">asin</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1.5707963267948966</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">atan</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 0.7853981633974483</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">atan2</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)); <span class="hljs-comment">// 0.7853981633974483</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">ceil</span>(<span class="hljs-number">1.1</span>)); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">cos</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 0.5403023058681398</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">exp</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 2.718281828459045</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-number">1.9</span>)); <span class="hljs-comment">// 1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 0</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)); <span class="hljs-comment">// 1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">pow</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)); <span class="hljs-comment">// 8</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>()); <span class="hljs-comment">// 0.123456789</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">round</span>(<span class="hljs-number">1.5</span>)); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">sin</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 0.8414709848078965</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">sqrt</span>(<span class="hljs-number">4</span>)); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">tan</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 1.5574077246549023</span>
+</code></pre>
+<hr>
+<h2 id="json">JSON</h2>
+<h3 id="json-methods">JSON Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(<span class="hljs-string">&#x27;{&quot;hello&quot;: &quot;world&quot;}&#x27;</span>)); <span class="hljs-comment">// { hello: &#x27;world&#x27; }</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>({ <span class="hljs-attr">hello</span>: <span class="hljs-string">&#x27;world&#x27;</span> })); <span class="hljs-comment">// {&quot;hello&quot;:&quot;world&quot;}</span>
+</code></pre>
+<hr>
+<h2 id="global-methods">Global Methods</h2>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">escape</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>)); <span class="hljs-comment">// hello%20world</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">eval</span>(<span class="hljs-string">&#x27;1 + 1&#x27;</span>)); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">isFinite</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// true</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">isNaN</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// false</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">parseFloat</span>(<span class="hljs-string">&#x27;1.1&#x27;</span>)); <span class="hljs-comment">// 1.1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&#x27;1&#x27;</span>)); <span class="hljs-comment">// 1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">unescape</span>(<span class="hljs-string">&#x27;hello%20world&#x27;</span>)); <span class="hljs-comment">// hello world</span>
+</code></pre>
+<hr>
+<h2 id="global-objects">Global Objects</h2>
+<h3 id="global-objects-properties">Global Objects Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">decodeURI</span>(<span class="hljs-string">&#x27;http://www.google.com&#x27;</span>)); <span class="hljs-comment">// http://www.google.com</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">decodeURIComponent</span>(<span class="hljs-string">&#x27;http%3A%2F%2Fwww.google.com&#x27;</span>)); <span class="hljs-comment">// http://www.google.com</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">encodeURI</span>(<span class="hljs-string">&#x27;http://www.google.com&#x27;</span>)); <span class="hljs-comment">// http://www.google.com</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">encodeURIComponent</span>(<span class="hljs-string">&#x27;http://www.google.com&#x27;</span>)); <span class="hljs-comment">// http%3A%2F%2Fwww.google.com</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Infinity</span>); <span class="hljs-comment">// Infinity</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">isFinite</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// true</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">isNaN</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// false</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">NaN</span>); <span class="hljs-comment">// NaN</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span>
+</code></pre>
+<h3 id="global-objects-methods">Global Objects Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">escape</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>)); <span class="hljs-comment">// hello%20world</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">eval</span>(<span class="hljs-string">&#x27;1 + 1&#x27;</span>)); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">parseFloat</span>(<span class="hljs-string">&#x27;1.1&#x27;</span>)); <span class="hljs-comment">// 1.1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&#x27;1&#x27;</span>)); <span class="hljs-comment">// 1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">unescape</span>(<span class="hljs-string">&#x27;hello%20world&#x27;</span>)); <span class="hljs-comment">// hello world</span>
+</code></pre>
+<hr>
+<h2 id="global-constructors">Global Constructors</h2>
+<h3 id="global-constructors-properties">Global Constructors Properties</h3>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Array</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// []</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Boolean</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// [Boolean: false]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Date</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// [Date: 2015-02-19T19:10:51.000Z]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// function () { [native code] }</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// {}</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Number</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// [Number: 0]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// {}</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">RegExp</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// /(?:)/</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">String</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>); <span class="hljs-comment">// &#x27;&#x27;</span>
+</code></pre>
+<h3 id="global-constructors-methods">Global Constructors Methods</h3>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>([])); <span class="hljs-comment">// true</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Boolean</span>(<span class="hljs-literal">true</span>)); <span class="hljs-comment">// [Boolean: true]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>()); <span class="hljs-comment">// 1424393460114</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;return 1 + 1;&#x27;</span>)()); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Number</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// [Number: 1]</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>({ <span class="hljs-attr">hello</span>: <span class="hljs-string">&#x27;world&#x27;</span> })); <span class="hljs-comment">// {}</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">RegExp</span>(<span class="hljs-string">&#x27;hello&#x27;</span>)); <span class="hljs-comment">// /hello/</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">String</span>(<span class="hljs-string">&#x27;hello&#x27;</span>)); <span class="hljs-comment">// hello</span>
+</code></pre>
+<hr>
+<h2 id="global-variables">Global Variables</h2>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">arguments</span>); <span class="hljs-comment">// [Arguments] { &#x27;0&#x27;: 1, &#x27;1&#x27;: 2 }</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Infinity</span>); <span class="hljs-comment">// Infinity</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">NaN</span>); <span class="hljs-comment">// NaN</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span>
+</code></pre>
+<hr>
+<h2 id="global-functions">Global Functions</h2>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">escape</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>)); <span class="hljs-comment">// hello%20world</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">eval</span>(<span class="hljs-string">&#x27;1 + 1&#x27;</span>)); <span class="hljs-comment">// 2</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">isFinite</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// true</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">isNaN</span>(<span class="hljs-number">1</span>)); <span class="hljs-comment">// false</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">parseFloat</span>(<span class="hljs-string">&#x27;1.1&#x27;</span>)); <span class="hljs-comment">// 1.1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">parseInt</span>(<span class="hljs-string">&#x27;1&#x27;</span>)); <span class="hljs-comment">// 1</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-built_in">unescape</span>(<span class="hljs-string">&#x27;hello%20world&#x27;</span>)); <span class="hljs-comment">// hello world</span>
+</code></pre>
+<hr>
+<h2 id="global-properties">Global Properties</h2>
+<pre><code class="language-javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Infinity</span>); <span class="hljs-comment">// Infinity</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">NaN</span>); <span class="hljs-comment">// NaN</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span>
+</code></pre>
+<hr>
+
+        
+        
+    </body>
+    </html>
