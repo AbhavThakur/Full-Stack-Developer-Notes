@@ -1,3 +1,0 @@
-Javascript Course - John Smilga
-
-Javascript Tutorial Continued - video 15 - Callback functions
