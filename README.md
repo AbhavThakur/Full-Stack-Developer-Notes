@@ -23,6 +23,8 @@
 
 
 ## Introduction
+Hello , This is the Repository for the Notes of the Full Stack Web & App Development .The work is in Progress .I will be sharing the RoadMap to how to get started with Full Stack Development.
+Our End Goal is to become a **Full Stack App Developer** .We will be learning the following Technologies :
 
 ## Introduction to the HTML5
 ### [HTML5 Introduction notes](Intro-To-HTML-CSS/HTML.md)
