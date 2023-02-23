@@ -3,13 +3,13 @@
 ## Table of Contents
 
 1. **[Functions](#functions)**
+
    1. [Function Declaration](#function-declaration)
    2. [Function Expression](#function-expression)
    3. [Function Hoisting](#function-hoisting)
    4. [Function Scope](#function-scope)
    5. [Function Parameters](#function-parameters)
-   6. [Function Properties](#function-properties)
-   7. [Function Methods](#function-methods)
+
 2. **[Objects](#objects)**
    1. [Object Literal](#object-literal)
    2. [Object Constructor](#object-constructor)
@@ -19,14 +19,15 @@
    6. [Object Inheritance](#object-inheritance)
    7. [Object Enumeration](#object-enumeration)
 3. **[Arrays](#arrays)**
-    1. [Array Literal](#array-literal)
-    2. [Array Constructor](#array-constructor)
-    3. [Array Properties](#array-properties)
-    4. [Array Methods](#array-methods)
+   1. [Array Literal](#array-literal)
+   2. [Array Constructor](#array-constructor)
+   3. [Array Properties](#array-properties)
+   4. [Array Methods](#array-methods)
 4. **[Strings](#strings)**
    1. [String Properties](#string-properties)
    2. [String Methods](#string-methods)
 5. **[Numbers](#numbers)**
+
    1. [Number Properties](#number-properties)
    2. [Number Methods](#number-methods)
 
@@ -94,27 +95,6 @@ function myFunction(myParam) {
 }
 
 myFunction(1);
-```
-
-### Function Properties
-
-```javascript
-function myFunction() {
-  // code
-}
-
-console.log(myFunction.length); // 0
-console.log(myFunction.prototype); // [Function]
-```
-
-### Function Methods
-
-```javascript
-function myFunction() {
-  // code
-}
-
-console.log(myFunction.toString()); // function myFunction() { // code }
 ```
 
 ---
@@ -231,7 +211,7 @@ var myArray = [1, 2, 3];
 
 ```javascript
 var myArray = new Array(1, 2, 3);
-console.log(myArray) // [1,2,3]
+console.log(myArray); // [1,2,3]
 ```
 
 ### Array Properties
@@ -243,7 +223,7 @@ var mySecondArray = [4, 5, 6];
 console.log(myArray.length); // 3   array.length
 console.log(myArray.concat(mySecondArray)); // [1,2,3,4,5,6]   array.concat(arrayX, arrayX, ..., arrayX)
 console.log(myArray.join(' ')); // 1 2 3     array.join(separator)
-console.log(myArray.reverse()); // [3,2,1]  array.reverse() 
+console.log(myArray.reverse()); // [3,2,1]  array.reverse()
 console.log(myArray.slice(1, 2)); // [2] array.slice(start, end)
 console.log(myArray.splice(1, 2)); // [2,3] array.splice(index, howmany, item1, ....., itemX)
 console.log(myArray.push(4)); // [1,2,3,4] array.push(item1, ....., itemX)
@@ -256,24 +236,66 @@ console.log(myArray.valueOf()); // [1,2,3] array.valueOf()
 console.log(myArray.indexOf(2)); // 1 array.indexOf(item, start)
 console.log(myArray.lastIndexOf(2)); // 1 array.lastIndexOf(item, start)
 
-console.log(myArray.every(function (element) { return element > 0; })); // true     array.every(function(currentValue, index, arr), thisValue)
-console.log(myArray.some(function (element) { return element > 0; })); // true      array.some(function(currentValue, index, arr), thisValue)
-console.log(myArray.filter(function (element) { return element > 0; })); // [1,2,3]     array.filter(function(currentValue, index, arr), thisValue)
-console.log(myArray.forEach(function (element) { console.log(element); })); // 1,2,3    array.forEach(function(currentValue, index, arr), thisValue)
-console.log(myArray.map(function (element) { return element * 2; })); // [2,4,6]    array.map(function(currentValue, index, arr), thisValue)
-console.log(myArray.reduce(function (previous, current) { return previous + current; })); // 6  array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
-console.log(myArray.reduceRight(function (previous, current) { return previous + current; })); // 6     array.reduceRight(function(total, currentValue, currentIndex, arr), initialValue)
+console.log(
+  myArray.every(function (element) {
+    return element > 0;
+  })
+); // true     array.every(function(currentValue, index, arr), thisValue)
+console.log(
+  myArray.some(function (element) {
+    return element > 0;
+  })
+); // true      array.some(function(currentValue, index, arr), thisValue)
+console.log(
+  myArray.filter(function (element) {
+    return element > 0;
+  })
+); // [1,2,3]     array.filter(function(currentValue, index, arr), thisValue)
+console.log(
+  myArray.forEach(function (element) {
+    console.log(element);
+  })
+); // 1,2,3
+// array.forEach(function(currentValue, index, arr), thisValue)
+//Only return value or no array is returned
+
+console.log(
+  myArray.map(function (element) {
+    return element * 2;
+  })
+); // [2,4,6]
+//array.map(function(currentValue, index, arr), thisValue)
+// Return the original size array
+
+console.log(
+  myArray.reduce(function (previous, current) {
+    return previous + current;
+  })
+); // 6  array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+console.log(
+  myArray.reduceRight(function (previous, current) {
+    return previous + current;
+  })
+); // 6     array.reduceRight(function(total, currentValue, currentIndex, arr), initialValue)
 console.log(myArray.copyWithin(0, 1, 2)); // [2,2,3]    array.copyWithin(target, start, end)
 console.log(myArray.fill(1, 0, 2)); // [1,1,3]      array.fill(value, start, end)
-console.log(myArray.find(function (element) { return element > 0; })); // 1     array.find(function(currentValue, index, arr), thisValue)
-console.log(myArray.findIndex(function (element) { return element > 0; })); // 0    array.findIndex(function(currentValue, index, arr), thisValue)
+console.log(
+  myArray.find(function (element) {
+    return element > 0;
+  })
+); // 1     array.find(function(currentValue, index, arr), thisValue)
+console.log(
+  myArray.findIndex(function (element) {
+    return element > 0;
+  })
+); // 0    array.findIndex(function(currentValue, index, arr), thisValue)
 console.log(myArray.includes(1)); // true       array.includes(valueToFind, fromIndex)
 console.log(myArray.keys()); // [0,1,2]     array.keys()
 console.log(myArray.entries()); // [[0,1],[1,2],[2,3]]      array.entries()
 console.log(myArray.values()); // [1,2,3]       array.values()
 
 console.log(myArray[Symbol.iterator]()); // [1,2,3]     array[Symbol.iterator]()
-console.log(myArray[Symbol.unscopables]); // { copyWithin: true, entries: true, fill: true, find: true, findIndex: true, includes: true, keys: true, values: true } 
+console.log(myArray[Symbol.unscopables]); // { copyWithin: true, entries: true, fill: true, find: true, findIndex: true, includes: true, keys: true, values: true }
 console.log(myArray[Symbol.isConcatSpreadable]); // undefined       array[Symbol.isConcatSpreadable]
 console.log(myArray[Symbol.species]); // undefined      array[Symbol.species]
 console.log(myArray[Symbol.match]); // undefined    array[Symbol.match]
@@ -283,8 +305,6 @@ console.log(myArray[Symbol.split]); // undefined    array[Symbol.split]
 console.log(myArray[Symbol.toPrimitive]); // undefined  array[Symbol.toPrimitive]
 console.log(myArray[Symbol.toStringTag]); // undefined  array[Symbol.toStringTag]
 console.log(myArray[Symbol.unscopables]); // undefined  array[Symbol.unscopables]
- 
-
 ```
 
 ### Array Methods
@@ -602,6 +622,7 @@ console.log(unescape('hello%20world')); // hello world
 ```
 
 ---
+
 ## Global Properties
 
 ```javascript
@@ -609,12 +630,17 @@ console.log(Infinity); // Infinity
 console.log(NaN); // NaN
 console.log(undefined); // undefined
 ```
+
 ---
 
 ## References vs Values
-### Primitive Types - number, string, boolean, null, undefined 
+
+### Primitive Types - number, string, boolean, null, undefined
+
 ### Non-Primitive Types - object, array, function, date, regexp
-#### when assigning a primitive type to a variable, the variable is assigned a copy of the value of the primitive type (a reference to the value)   
+
+#### when assigning a primitive type to a variable, the variable is assigned a copy of the value of the primitive type (a reference to the value)
+
 #### when assigning a non-primitive type to a variable, the variable is assigned a reference to the value of the non-primitive type (a reference to the reference)
 
 ```javascript
@@ -636,7 +662,9 @@ console.log(b); // { hello: 'universe' }
 ---
 
 ## Truthy vs Falsy
+
 ### Truthy - true, 1, 'hello', {}, [], function() {}
+
 ### Falsy - false, 0, '', null, undefined, NaN
 
 ```javascript
@@ -712,6 +740,7 @@ if (NaN) {
 ```
 
 ---
+
 ## Global Scope
 
 ```javascript
@@ -731,7 +760,7 @@ function foo() {
 foo();
 ```
 
-```javascript  
+```javascript
 var a = 1;
 function foo() {
   a = 2;
@@ -791,7 +820,7 @@ console.log(a); // 1
 function bar() {
   a = 3;
   console.log(a); // 3
-}  
+}
 bar();
 console.log(a); // 3
 ```
@@ -837,7 +866,9 @@ function baz() {
 
 baz();
 ```
+
 ---
+
 ## Local Scope
 
 ```javascript
@@ -849,7 +880,7 @@ foo();
 console.log(a); // ReferenceError: a is not defined
 ```
 
-```javascript  
+```javascript
 function foo() {
   var a = 1;
   console.log(a); // 1
@@ -896,8 +927,4 @@ function baz() {
 baz();
 ```
 
-
 ---
-
-
-

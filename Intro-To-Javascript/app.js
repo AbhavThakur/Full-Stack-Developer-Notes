@@ -10,8 +10,8 @@ const remainder = number % 3;
 
 // Implicit Type Conversion  --------------------------------
 
-let number1 = "13";
-let number2 = "22";
+let number1 = '13';
+let number2 = '22';
 const number3 = number1 - number2;
 // javascript converting string to number
 // But when Addition it does concatenation
@@ -27,7 +27,7 @@ console.log(number3);
 //typedef - operator (typeof variable) (typeof value)
 
 //string
-const text = "some text";
+const text = 'some text';
 //number
 const numbers = 44;
 //boolean
@@ -90,14 +90,14 @@ numbers.slice(0, 2);
 // Objects - containers that hold key value pairs
 
 const person = {
-  firstName: "John",
-  lastName: "Doe",
+  firstName: 'John',
+  lastName: 'Doe',
   age: 30,
-  hobbies: ["music", "movies", "sports"],
+  hobbies: ['music', 'movies', 'sports'],
   address: {
-    street: "50 main st",
-    city: "Boston",
-    state: "MA",
+    street: '50 main st',
+    city: 'Boston',
+    state: 'MA',
   },
 };
 // console.log(person);
@@ -122,22 +122,22 @@ const dice = 1;
 
 switch (dice) {
   case 1:
-    console.log("You rolled a 1");
+    console.log('You rolled a 1');
     break;
   case 2:
-    console.log("You rolled a 2");
+    console.log('You rolled a 2');
     break;
   case 3:
-    console.log("You rolled a 3");
+    console.log('You rolled a 3');
     break;
   case 4:
-    console.log("You rolled a 4");
+    console.log('You rolled a 4');
     break;
   case 5:
-    console.log("You rolled a 5");
+    console.log('You rolled a 5');
     break;
   case 6:
-    console.log("You rolled a 6");
+    console.log('You rolled a 6');
     break;
   default:
     console.log("You don't rolled ");
